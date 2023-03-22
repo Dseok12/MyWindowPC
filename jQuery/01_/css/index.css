@@ -2,5 +2,26 @@
 .actArea{position: relative;}
 .contWrap{width: 1200px;margin: 0 auto;position: relative;}
 
+/* { menu */
+.topMenu{width: 100%;border-bottom: 1px solid #2fa4a3;background: #009192;padding: 20px 0;}
+.topMenu .innerBg{width: calc(100% - 50px); margin: 0 auto; display: flex;align-items: center;justify-content: space-around;}
+.topMenu .innerBg .contWrap{display: flex; align-items: center;justify-content: center;}
 
+.menu_box{display: flex;align-items: center;justify-content: center;}
+.menu_box > li{margin-right: 30px;text-align: center;}
+.menu_box > li:last-child{margin-right: 0px;}
+.menu_box > li > a{text-align: center; color: #fff;font-weight: bold;font-size: 19px;}
 
+.util_box{display: flex;align-items: center;justify-content: center;}
+.util_box > li{margin-right: 20px;}
+.util_box > li > a{color: #fff;font-weight: bold;}
+.util_box > li:last-child{margin-right: 0;}
+/* menu } */
+
+/* { top */
+.topWrap{background: url('../images/top_main_bg.png') no-repeat center center;height: 630px;background-size: cover;}
+.topWrap .innerBg{}
+.topWrap .innerBg .contWrap{}
+.topWrap .innerBg .contWrap h3{padding-top: 85px;}
+.topWrap .innerBg .contWrap h3 img{width: 60%;}
+/* top } */
