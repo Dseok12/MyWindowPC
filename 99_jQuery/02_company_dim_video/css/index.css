@@ -1,0 +1,9 @@
+@charset "UTF-8";
+.topWrap{width: 100%;height: 100vh;background: #f87e7e;position: relative;}
+.topWrap .innerBg{width: 100%; position: relative;}
+.topWrap .innerBg .contWrap{width: 1010px;margin: 0 auto;}
+
+.videoWrap{position: absolute;left: 0;top: 0;background: rgba(0, 0, 0, 0.5);height: 100vh;}
+.videoWrap .innerBg{width: 80%;margin: 0 auto;padding: 30px 0;position: relative;}
+.videoWrap .innerBg .close_btn{position: absolute;right: 0;top: 0;}
+.videoWrap .innerBg video{width: 100%;}
