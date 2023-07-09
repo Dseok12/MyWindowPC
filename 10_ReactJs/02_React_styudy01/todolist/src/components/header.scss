@@ -1,0 +1,28 @@
+.Header{
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  .nav_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    .menu_box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      li{
+        margin-right: 0.8rem;
+        font-weight: bold;
+        &:last-child{
+          margin-right: 0;
+        }
+        &:hover{
+          text-decoration: underline;
+          text-underline-position : under;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
