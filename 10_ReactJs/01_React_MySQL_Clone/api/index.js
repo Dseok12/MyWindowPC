@@ -21,5 +21,5 @@ app.use("/api/comments", commentRoutes)
 app.use("/api/likes", likeRoutes)
 
 app.listen(8800, () => {
-    console.log("API test!! 40:42부터");
+    console.log("API test!! 40:42부터 / 복습은 22:00부터");
 })
