@@ -21,7 +21,21 @@ public class _03_Variables {
 
         boolean pass = true;
         System.out.println("이번 시험에 합격 했나요?" + pass);
-        
-//      1:03:34초 까지
+
+        double d = 3.141232353465457;
+        float f = 3.141232353465457F;
+
+//      double -> 정밀한 소수점 계산이 사용가능.
+//      float -> 정밀한 소수점 사용이 어려움.
+
+        System.out.println(d);
+        System.out.println(f);
+
+        long l = 10000000000000L;
+        l = 1_000_000_000_000L;
+
+        System.out.println(l);
+
+//      1:11:30초 까지
     }
 }
