@@ -1,8 +1,8 @@
-import mysql from "mysql";
+import mysql from "mysql"
 
 export const db = mysql.createConnection({
-    host:"localhost",
-    root:"root",
-    password:"",
-    database:"social"
+    host: "localhost",
+    user: "root",
+    password: "123456",
+    database: "social"
 })

@@ -3,53 +3,66 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
+    // 사용자가 있는지 확인
 
-    // 유저 확인
-    const q = "SELECT * FROM users WHERE username = ?"
-    db.query(q,[req.body.username], (err, date) => {
-        if(err) return res.status(500).json(err);
-        if(data.length) return res.status(409).json("유저가 이미 존재합니다.");
-        // 비밀번호 암호화
+    const q = "SELECT * FROM users WHERE username = ?";
+
+    db.query(q, [req.body.username], (err, data) => {
+        // 회원가입
+        if (err) return res.status(500).json(err);
+        if (data.length) return res.status(409).json("User already exists!");
+        //Hash the password
         const salt = bcrypt.genSaltSync(10);
-        const hashedPassword = bcrypt.hashSync(res.body.password, salt);
+        const hashedPassword = bcrypt.hashSync(req.body.password, salt);
 
-        const q = "INSERT INTO users (`username`, `email`, `password`, `name`) VALUE (?)";
+        const q =
+            "INSERT INTO users (`username`,`email`,`password`,`name`) VALUE (?)";
 
-        const values = [req.body.username, req.body.email, hashedPassword, req.body.name]
+        const values = [
+            req.body.username,
+            req.body.email,
+            hashedPassword,
+            req.body.name,
+        ];
 
         db.query(q, [values], (err, data) => {
-            if(err) return res.status(500).json(err);
-            return res.status(200).json("회원가입에 성공하였습니다.");
+            if (err) return res.status(500).json(err);
+            return res.status(200).json("User has been created.");
         });
-    })
+    });
+};
 
-    // 회원가입
-
-
-}
 export const login = (req, res) => {
     const q = "SELECT * FROM users WHERE username = ?";
 
     db.query(q, [req.body.username], (err, data) => {
-        if(err) return res.status(500).json(err);
-        if(data.length === 0) return res.status(404).json("사용자를 찾을 수 없습니다.");
-        const checkPassword = bcrypt.compareSync(req.body.password, data[0].password)
+        if (err) return res.status(500).json(err);
+        if (data.length === 0) return res.status(404).json("User not found!");
 
-        if(!checkPassword) return res.status(400).json("잘못된 사용자 정보입니다.");
+        const checkPassword = bcrypt.compareSync(
+            req.body.password,
+            data[0].password
+        );
 
-        const token = jwt.sign({id:data[0].id}, "secretkey");
+        if (!checkPassword)
+            return res.status(400).json("Wrong password or username!");
 
-        const {password, ...others} = data[0]
+        const token = jwt.sign({ id: data[0].id }, "secretkey");
 
-        req.cookie("accessToken", token, {
-            httpOnly: true,
-        }).status(200).json(others)
+        const { password, ...others } = data[0];
 
-    })
-}
+        res
+            .cookie("accessToken", token, {
+                httpOnly: true,
+            })
+            .status(200)
+            .json(others);
+    });
+};
+
 export const logout = (req, res) => {
     res.clearCookie("accessToken", {
         secure: true,
         sameSite: "none"
-    }).status(200).json("유저가 로그아웃 하였습니다.");
-}
+    }).status(200).json("User has been logged out.")
+};
