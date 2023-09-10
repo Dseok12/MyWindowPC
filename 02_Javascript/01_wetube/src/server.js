@@ -1,18 +1,22 @@
 import express from "express";
+import morgan from "morgan";
+import globalRouter from "./routers/globalRouter.js";
+import userRouter from "./routers/userRouter.js";
+import videoRouter from "./routers/videoRouter.js";
 
-const POST = 4000
+const POST = 4000;
 const app = express();
+const logger = morgan("dev");
 
-const handleHome = (req, res) => {
-  return res.send("<p>나는 여전히 배가 고프다</p>")
-}
-const handleLogin = (req, res) => {
-  return res.send("<h1>로그인은 여기서</h1>")
-}
+app.use(logger);
 
-app.get("/", handleHome)
-app.get("/login", handleLogin)
+app.use("/", globalRouter)
+app.use("/users", userRouter)
+app.use("/videos", videoRouter)
 
-const handleListening = () => {console.log(`서버 시작!✈️  http://localhost:${POST}`)}
+
+/** 서버 시작 */
+const handleListening = () => {console.log(`http://localhost:${POST}`)}
 
 app.listen(POST, handleListening);
+/** 서버 시작 */
