@@ -3,8 +3,8 @@ import { see, edit, upload, deleteVideo } from "../controllers/videoController.j
 
 const videoRouter = express.Router();
 
-videoRouter.get("/upload", upload)
 videoRouter.get("/:id", see)
+videoRouter.get("/upload", upload)
 videoRouter.get("/:id/edit", edit)
 videoRouter.get("/:id/delete", deleteVideo)
 
