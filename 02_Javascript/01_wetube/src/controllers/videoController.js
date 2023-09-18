@@ -1,9 +1,9 @@
 export const trending = (req, res) => {
-  res.send("Home Page Video")
+  res.render("home")
 };
 
 export const see = (req, res) => {
-  res.send("Watch");
+  res.send(`Watch Video #${req.params.id}`);
 };
 
 export const edit = (req, res) => {
