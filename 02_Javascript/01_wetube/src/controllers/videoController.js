@@ -1,13 +1,13 @@
 export const trending = (req, res) => {
-  res.render("home");
+  res.render("home", {pageTitle: "Home"});
 };
 
 export const see = (req, res) => {
-  res.render("watch");
+  res.render("watch", {pageTitle: "Watch"});
 };
 
 export const edit = (req, res) => {
-  res.render("edit");
+  res.render("edit", {pageTitle: "Edit"});
 };
 
 export const search = (req, res) => {
@@ -19,5 +19,5 @@ export const upload = (req, res) => {
 };
 
 export const deleteVideo = (req, res) => {
-  res.send("DeleteVideo User");
+  res.send("Delete Video User");
 };
