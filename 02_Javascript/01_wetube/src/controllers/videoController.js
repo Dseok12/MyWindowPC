@@ -1,35 +1,37 @@
+let videos = [
+  {
+    title: "Video #1",
+    rating: 5,
+    comments: 2,
+    createAt: "2 minutes ago",
+    views: 5,
+    id: 1
+  },
+  {
+    title: "Video #2",
+    rating: 2,
+    comments: 4,
+    createAt: "3 minutes ago",
+    views: 16,
+    id: 2
+  },
+  {
+    title: "Video #3",
+    rating: 13,
+    comments: 2,
+    createAt: "34 minutes ago",
+    views: 34,
+    id: 3
+  },
+]
 export const trending = (req, res) => {
-  const videos = [
-    {
-      title: "Video #1",
-      rating: 5,
-      comments: 2,
-      createAt: "2 minutes ago",
-      views: 5,
-      id: 1
-    },
-    {
-      title: "Video #2",
-      rating: 2,
-      comments: 4,
-      createAt: "3 minutes ago",
-      views: 16,
-      id: 2
-    },
-    {
-      title: "Video #3",
-      rating: 13,
-      comments: 2,
-      createAt: "34 minutes ago",
-      views: 34,
-      id: 3
-    },
-  ]
   return res.render("home", {pageTitle: "Home", videos });
 };
 
 export const see = (req, res) => {
-  res.render("watch", {pageTitle: "Watch"});
+  const { id } = req.params;
+  const video = videos[id - 1];
+  res.render("watch", {pageTitle: `Watching ${video.title}`});
 };
 
 export const edit = (req, res) => {
