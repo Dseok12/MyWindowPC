@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS Transition</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background: coral;
+			transition:
+				transform 1s cubic-bezier(0.38,-0.57, 0.63, 1.54),
+				background 2s 1s linear;
+		}
+
+		.box-action {
+			transform: translateX(300px);
+			background: blue;
+		}
+
+		/* .box:hover {
+			transform: scale(2);
+		} */
+
+		/* transition: 축약형, 단축형, 속기형 등으로 부른다. 줄여서 쓰는 형태로, 트랜지션의 모든 속성을 한꺼번에 지정 가능 */
+		/* transition-property: 트랜지션을 적용할 CSS 속성 */
+		/* transition-duration: 트랜지션이 재생(지속)되는 시간 */
+		/* transition-delay: 트랜지션의 재생이 시작되기 전 대기 시간 */
+		/* transition-timing-function: 트랜지션의 가속, 감속을 조정해서 애니메이션 느낌을 다르게 */
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<script>
+		const box = document.querySelector('.box');
+		box.addEventListener('click', () => {
+			box.classList.toggle('box-action');
+		});
+	</script>
+</body>
+</html>

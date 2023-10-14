@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Starfield</title>
+	<style>
+		body {
+			overflow: hidden;
+			background-color: gold;
+		}
+
+		.star {
+			position: absolute;
+			width: 3px;
+			height: 3px;
+			/* font-size: 0; */
+			border-radius: 50%;
+			background: black;
+		}
+
+		.star:nth-child(20n) {
+			width: 50px;
+			height: 50px;
+			background: url('./ilbuni-yoga.png') no-repeat 0 0 / cover;
+		}
+	</style>
+</head>
+<body>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations-next.min.js"></script>
+	<script type="module">
+		import Star from './Star.js';
+
+		const numberOfStars = 200;
+		const canvasWidth = window.innerWidth;
+		const canvasHeight = window.innerHeight;
+		const zModifier = canvasHeight;
+		const effects = [];
+
+		let x, y, z;
+		let scale;
+		let keyframes, options;
+		let pointFrom, pointTo;
+		let star;
+
+		function set3DPoint(x, y, z) {
+			const scale = zModifier / (zModifier + z);
+			const x2D = x * scale + canvasWidth*0.5;
+			const y2D = y * scale + canvasHeight*0.5;
+
+			return [x2D, y2D, scale];
+		}
+
+		for (let i = 0; i < numberOfStars; i++) {
+			x = Math.random() * canvasWidth - canvasWidth*0.5;
+			y = Math.random() * canvasHeight - canvasHeight*0.5;
+			z = Math.random() * zModifier;
+
+			scale = zModifier / (zModifier + z);
+
+			pointFrom = set3DPoint(x, y, z);
+			pointTo = set3DPoint(x, y, z - zModifier);
+			
+			star = new Star(i);
+
+			keyframes = [
+				{
+					transform: `
+						translate(${pointFrom[0]}px, ${pointFrom[1]}px)
+						scale(${pointFrom[2]})
+					`
+				},
+				{
+					transform: `
+						translate(${pointTo[0]}px, ${pointTo[1]}px)
+						scale(${pointTo[2]})
+					`
+				}
+			];
+
+			options = {
+				duration: 1000 / scale,
+				iterations: Infinity,
+				fill: 'both',
+				easing: 'linear'
+			};
+
+			effects.push(new KeyframeEffect(star.element, keyframes, options));
+		}
+
+		const groupEffect = new GroupEffect(effects);
+		const animation = document.timeline.play(groupEffect);
+
+		window.addEventListener('click', () => {
+			if (animation.playState === 'paused') {
+				animation.play();
+			} else {
+				animation.pause();
+			}
+		});
+	</script>
+</body>
+</html>
