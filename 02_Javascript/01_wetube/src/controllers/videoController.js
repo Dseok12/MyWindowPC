@@ -53,6 +53,17 @@ export const getUpload = (req, res) => {
 
 export const postUpload = (req, res) => {
   // 여기서 비디오를 비디오 배열에 추가할 예정
+  // console.log(req.body)
+  const { title } = req.body;
+  const newVideo = {
+    title,
+    rating: 0,
+    comments: 0,
+    createAt: "now",
+    views: 0,
+    id: videos.length + 1
+  }
+  videos.push(newVideo);
   return res.redirect("/")
 }
 
