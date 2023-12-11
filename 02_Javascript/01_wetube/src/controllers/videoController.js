@@ -1,12 +1,9 @@
 import Video from "../models/Video.js";
 
 export const home = (req, res) => {
-  console.log("Start");
   Video.find({}, (error, videos) => {
-    console.log("Finished");
-    return res.render("home", { pageTitle: "Home", videos });
+    return res.render("home", { pageTitle: "Home", videos: [] });
   });
-  console.log("I finish first");
 };
 
 export const watch = (req, res) => {
