@@ -27,20 +27,23 @@ export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: `Upload Video` })
 }
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   // 여기서 비디오를 비디오 배열에 추가할 예정
   const { title, description, hashtags } = req.body;
-  const video = new Video({
-    title: title,
-    description: description,
-    createAt: Date.now(),
-    hashtags: hashtags.split(",").map(word => `#${word}`),
-    meta: {
-      views: 0,
-      rating: 0,
-    }
-  })
-  console.log(video);
-  return res.redirect("/")
+  try{
+    await Video.create({
+      title: title,
+      description: description,
+      createAt: Date.now(),
+      hashtags: hashtags.split(",").map(word => `#${word}`),
+    });
+    return res.redirect("/");
+  } catch(error) {
+    console.log(error);
+    return res.render("upload", {
+      pageTitle: "Upload Video",
+      errorMessage: error._message
+    })
+  }
 }
 
