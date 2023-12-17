@@ -1,0 +1,7 @@
+.App{width: calc(100% - 300px); margin: 0 auto;padding: 30px;border: 1px solid #e1e1e1;}
+.App > h2{font-size: 30px;font-weight: bold;text-align: center;margin-bottom: 20px;}
+
+.DiaryEditor > h2{font-size: 20px; font-weight: bold;text-align: center;margin-bottom: 20px;}
+.DiaryEditor> div{width: calc(100% - 50px); margin: 0 auto;}
+.DiaryEditor input, .DiaryEditor textarea, .DiaryEditor select {width: calc(100% - 50px); margin: 0 auto;padding: 5px;margin-bottom: 10px;}
+.DiaryEditor > button {display: block;padding: 8px;cursor: pointer;}
