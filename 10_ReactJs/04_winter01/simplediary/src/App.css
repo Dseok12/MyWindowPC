@@ -4,4 +4,5 @@
 .DiaryEditor > h2{font-size: 20px; font-weight: bold;text-align: center;margin-bottom: 20px;}
 .DiaryEditor> div{width: calc(100% - 50px); margin: 0 auto;}
 .DiaryEditor input, .DiaryEditor textarea, .DiaryEditor select {width: calc(100% - 50px); margin: 0 auto;padding: 5px;margin-bottom: 10px;}
+.DiaryEditor textarea{height: 200px;}
 .DiaryEditor > button {display: block;padding: 8px;cursor: pointer;}
