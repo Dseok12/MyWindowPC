@@ -24,10 +24,17 @@ function App() {
     setData([newItem, ...data])
   }
 
+  const onDelete = (targetId) => {
+    console.log(`${targetId} 삭제 완료`)
+    const newDiaryList = data.filter((it) => it.id !== targetId)
+    console.log(newDiaryList)
+    setData(newDiaryList)
+  }
+
   return (
     <div className="App">
       <DiaryEditor onCreate={onCreate} />
-      <DiaryList diaryList={data} />
+      <DiaryList onDelete={onDelete} diaryList={data} />
     </div>
   );
 }
