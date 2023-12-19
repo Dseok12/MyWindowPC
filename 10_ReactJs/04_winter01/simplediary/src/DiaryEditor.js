@@ -31,7 +31,7 @@ const DiaryEditor = ({onCreate}) => {
       return;
     }
     onCreate(state.author, state.content, state.emotion)
-    alert("일기 저장 완료.")
+    alert("일기 저장 완료")
     setState({
       author: "",
       content: "",
