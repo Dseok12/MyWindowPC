@@ -5,5 +5,5 @@ block content
   form(method="POST")
     input(name="title", placeholder="Video Title", value=video.title, required)
     input(placeholder="Description", required, type="text", value=video.description, name="description")
-    input(placeholder="Hashtags, 콤마를 사용하여 분리하세요.", required, type="text", value=video.hashtags.join(), name="hashtags")
+    input(placeholder="Hashtags, 콤마를 사용하여 분리하세요.", required, type="text", name="hashtags", value=video.hashtags.join())
     input(value="Save",type="submit")

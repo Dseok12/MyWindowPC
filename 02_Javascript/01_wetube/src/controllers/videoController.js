@@ -7,6 +7,8 @@ export const home = async(req, res) => {
   return res.render("home", { pageTitle: "Home", videos });
 };
 
+
+
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
@@ -18,6 +20,8 @@ export const watch = async (req, res) => {
   return res.render("watch", {pageTitle: `Watching`, video});
 };
 
+
+
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
@@ -26,6 +30,8 @@ export const getEdit = async (req, res) => {
   }
   return res.render("edit", {pageTitle: `Editing: ${video.title}`, video});
 };
+
+
 
 export const postEdit = async (req, res) => {
   const { id } = req.params;
@@ -37,16 +43,18 @@ export const postEdit = async (req, res) => {
   await Video.findByIdAndUpdate(id, {
     title,
     description,
-    hashtags: hashtags.split(",")
-    .map((word) => (word.startsWith('#') ? word :`#${word}`))
+    hashtags: Video.formatHashtags(hashtags),
   });
-  await video.save();
   return res.redirect(`/videos/${id}`);
 }
+
+
 
 export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: `Upload Video` })
 }
+
+
 
 export const postUpload = async (req, res) => {
   // 여기서 비디오를 비디오 배열에 추가할 예정
@@ -56,9 +64,7 @@ export const postUpload = async (req, res) => {
       title: title,
       description: description,
       createAt: Date.now(),
-      hashtags: hashtags
-      .split(",")
-      .map((word) => (word.startsWith('#') ? word :`#${word}`)),
+      hashtags: Video.formatHashtags(hashtags),
     });
     return res.redirect("/");
   } catch(error) {
