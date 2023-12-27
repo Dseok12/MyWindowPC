@@ -1,10 +1,10 @@
-mixin video(내마음대로변수01)
+mixin video(videoItem)
   div
     h4
-      a(href=`/videos/${내마음대로변수01.id}`)=내마음대로변수01.title 
-    p=내마음대로변수01.description
-    //- ul
-    //-   each hashtag in 내마음대로변수01.hashtags
-    //-     li=hashtag
-    small=내마음대로변수01.createdAt
+      a(href=`/videos/${videoItem.id}`)=videoItem.title 
+    p=videoItem.description
+    ul
+      each hashtag in videoItem.hashtags
+        li=hashtag
+    small=videoItem.createdAt
     hr
