@@ -1,6 +1,11 @@
 extends base.pug
+include mixins/video
 
 block content
   form(method="GET")
-    input(type="text", name="ketword", placeholder="제목 검색")
+    input(type="text", name="keyword", placeholder="제목 검색")
     input(type="submit", value="검색하기")
+
+  div
+    each video in videos
+      +video(video)

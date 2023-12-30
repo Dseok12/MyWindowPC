@@ -1,10 +1,10 @@
-mixin video(videoItem)
+mixin video(video)
   div
     h4
-      a(href=`/videos/${videoItem.id}`)=videoItem.title 
-    p=videoItem.description
+      a(href=`/videos/${video.id}`)=video.title 
+    p=video.description
     ul
-      each hashtag in videoItem.hashtags
-        li=hashtag
-    small=videoItem.createdAt
+      each hashtag in video.hashtags
+          li=hashtag
+    small=video.createdAt
     hr
