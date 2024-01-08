@@ -1,6 +1,8 @@
 extends base.pug
 
 block content
+  if errorMessage
+    span=errorMessage
   form(method="POST")
     span email
       input(placeholder="email", name="email", type="email", required)
@@ -8,6 +10,8 @@ block content
       input(placeholder="username", name="username", type="text", required)
     span password
       input(placeholder="password", name="password", type="password", required)
+    span password2
+      input(placeholder="password2", name="password2", type="password", required)
     span name
       input(placeholder="name", name="name", type="text", required)
     span localtion
