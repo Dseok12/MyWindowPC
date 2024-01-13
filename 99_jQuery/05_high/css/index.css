@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.pass--uni__wrap{width: 760px;margin: 50px auto;position: relative;overflow: hidden;height: 70px;border: 1px solid #000;}
+.pass--uni__wrap::after{clear: both;overflow: hidden;}
+.pass--uni__tit{float: left;height: 60px;width: 173px;border-right: 1px solid #000;padding: 10px 10px 0 10px;}
+.sub__tit{color: #666;font-size: 11px;margin-bottom: 10px;text-align: center;}
+.main__tit{font-weight: bold;font-size: 14px;}
+.main__tit .tit__color{font-weight: bold;font-size: 14px;color: #327aff;}
+.close_btn{position: absolute;right: 0;top: 0;}
+.pass--uni__name{float: right;width: 566px;}
+.uni__one{width: 250px;margin: 0 auto;}
+.uni__one > li{float: left;}
+.uni__one > li .item{width: 250px;margin: 0 auto;text-align: center;background: #e1e1e1;padding: 8px 0;}
+.uni__one > li .item .uni__name{margin-bottom: 10px;font-size: 14px;}
+.uni__one > li .item .pass__person{font-size: 14px;}
