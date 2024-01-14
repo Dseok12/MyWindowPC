@@ -11,18 +11,19 @@ $('.bxslider li').bxSlider({
 	touchEnabled: (navigator.maxTouchPoints > 0)
 });
 
-
-const uniTableWrap = document.querySelector('.pass--uni--table__wrap02');
-const uniTableWrapTable = document.querySelector('.pass--uni--table__wrap02 .uni_table');
-const uniTableWrapTableTr = document.querySelector('.pass--uni--table__wrap02 .uni_table').getElementsByTagName("tr");
-console.log(uniTableWrapTableTr)
-if(uniTableWrapTableTr.length > 10) {
-	uniTableWrap.style.height = "188px"
-	uniTableWrap.style.overflowY = "scroll"
-} else {
-	uniTableWrap.style.heithg = "auto"
-	uniTableWrap.style.overflowY = "none"
+function uniTableFnc () {
+	const uniTableWrap = document.querySelector('.pass--uni--table__wrap');
+	const uniTableTr = document.querySelector('.pass--uni--table__wrap .uni_table').getElementsByTagName("tr");
+	console.log(uniTableTr)
+	if(uniTableTr.length > 10) {
+		uniTableWrap.style.maxHeight = "188px"
+		uniTableWrap.style.overflowY = "scroll"
+	} else {
+		uniTableWrap.style.heithg = "auto"
+		uniTableWrap.style.overflowY = "none"
+	}
 }
+uniTableFnc()
 
 $(".close_btn").click(function() {
 	$(".pass--uni__wrap").hide()
