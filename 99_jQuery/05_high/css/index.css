@@ -7,8 +7,26 @@
 .main__tit .tit__color{font-weight: bold;font-size: 14px;color: #327aff;}
 .close_btn{position: absolute;right: 0;top: 0;}
 .pass--uni__name{float: right;width: 566px;}
-.uni__one{width: 250px;margin: 0 auto;}
-.uni__one > li{float: left;}
-.uni__one > li .item{width: 250px;margin: 0 auto;text-align: center;background: #e1e1e1;padding: 8px 0;}
+.uni__one{width: 230px;margin: 0 auto;display: flex;align-items: center;justify-content: center;}
+.uni__one > li{float: left;margin-top: 8px;margin-right: 5px;}
+.uni__one > li:last-child{margin-right: 0px;}
+.uni__one > li .item{width: 230px;margin: 0 auto;text-align: center;background: #e1e1e1;padding: 8px 0;}
 .uni__one > li .item .uni__name{margin-bottom: 10px;font-size: 14px;}
 .uni__one > li .item .pass__person{font-size: 14px;}
+
+.uni__three {float: left;display: flex;align-items: center;justify-content: center;}
+.uni__three .bx-wrapper{box-shadow: none;background: #e1e1e1;width: 140px !important;text-align: center;}
+.uni__three .bx-wrapper > li {float: left;border: 1px solid #000;}
+.uni__three .bx-wrapper > li .slide__item {border: 1px solid #000;}
+.uni__three .bx-wrapper > li .slide__item > div {border: 1px solid #000;}
+
+.pass--uni--table__wrap{width: 775px;margin: 0px auto;display: none;position: relative;}
+.pass--uni--table__wrap table{border-collapse : collapse;width: 760px;margin: 0px auto 10px;}
+.pass--uni--table__wrap table tr{border-top: 1px solid #000;border-bottom: 1px solid #000;text-align: center;}
+.pass--uni--table__wrap table tr td{border-right: 1px solid #000;padding: 3px 4px;font-size: 12px;}
+.pass--uni--table__wrap table tr td:last-child{border-right: none;}
+.pass--uni--table__wrap table tr:last-child{border-top: none;}
+
+.pass--uni--table__wrap02{width: 775px;margin: 0px auto;}
+.pass--uni--table__wrap02 table{border-collapse : collapse;width: 100%;margin: 0px auto;}
+.open_btn{position: absolute;right: 0;top: 0;}
