@@ -9,5 +9,4 @@ userRouter.get("/remove", remove);
 userRouter.get("/github/start", startGithubLogin)
 userRouter.get("/github/finish", finishGithubLogin)
 userRouter.get("/:id(\\d+)", see);
-// https://github.com/login/oauth/authorize?client_id=b3ccfec2666322819dd5&allow_signup=false&scope=user:email
 export default userRouter;
