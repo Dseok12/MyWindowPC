@@ -1,0 +1,14 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "wetube",
+  "keywords": ["wetube"],
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
