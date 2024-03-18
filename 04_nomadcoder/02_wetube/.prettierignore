@@ -1,1 +1,5 @@
-*.css
+**/*.css
+**/.git
+**/.svn
+**/.hg
+**/node_modules
