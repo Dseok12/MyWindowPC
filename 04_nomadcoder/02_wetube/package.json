@@ -4,7 +4,7 @@
   "description": "",
   "main": "init.js",
   "scripts": {
-    "dev": "nodemon src/init.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "keywords": [],
   "author": "",
