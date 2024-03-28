@@ -2,9 +2,9 @@
   "name": "02_wetube",
   "version": "1.0.0",
   "description": "",
-  "main": "init.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "keywords": [],
   "author": "",
