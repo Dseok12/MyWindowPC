@@ -1,13 +1,20 @@
 const express = require('express');
 const app = express();
-const port = 4000;
+const PORT = 4000;
 
-const handleListening = () => {
-  console.log(`http://localhost:${port}`);
+const logger = (req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next()
 }
 
-app.listen(port, handleListening);
+const handleHome = (req, res) => {
+  return res.send("여기는 핸들홈");
+};
 
-app.get('/', (req, res) => {
-  return res.send('노드몬 연결 완료!!');
-})
+app.get("/", logger, handleHome)
+
+const handleListening = () => {
+  console.log(`Server listenting on part http://localhost:${PORT}`);
+}
+
+app.listen(PORT, handleListening)
