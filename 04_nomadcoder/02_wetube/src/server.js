@@ -1,17 +1,22 @@
-const express = require('express');
+import express from "express";
+import morgan from "morgan";
+
+
 const app = express();
 const PORT = 4000;
+const logger = morgan("dev");
 
-const logger = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next()
-}
-
-const handleHome = (req, res) => {
-  return res.send("여기는 핸들홈");
+const home = (req, res) => {
+  return res.send("여기는 홈");
 };
 
-app.get("/", logger, handleHome)
+const login = (req, res) => {
+  return res.send("login");
+};
+
+app.use(logger);
+app.get("/", home);
+app.get("/login", login);
 
 const handleListening = () => {
   console.log(`Server listenting on part http://localhost:${PORT}`);
