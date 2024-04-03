@@ -1,13 +1,18 @@
 # Wetude Reloaded
 
 / -> Home<br/>
-/join -> Join<br/>
-/login -> Login<br/>
-/search -> Search<br/>
+/join -> join<br/>
+/login -> login<br/>
+/search -> search<br/>
 <br/>
+
+/user/join
+/user/login
 /users/edit -> Edit user<br/>
 /users/delete -> Delete user<br/>
 <br/>
+
+/videos/search
 /videos/watch -> Watch Video<br/>
 /videos/edit -> Edit Video<br/>
 /videos/delete -> Delete Vdieo<br/>
