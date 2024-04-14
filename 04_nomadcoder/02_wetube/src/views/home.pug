@@ -1,8 +1,9 @@
-doctype html
-html(lang="ko")
-  head
-    include partials/headmeta.pug
-    title Wetube
-  body
-    h1 환영합니다. 홈입니다.
-  include partials/footer.pug
+extends base.pug
+include mixins/video.pug
+
+block content
+  h2 환영합니다. 메인홈페이지입니다
+  each potato in videos
+    +video(potato)
+  else
+    p 비디오가 없습니다
