@@ -3,7 +3,7 @@ include mixins/video.pug
 
 block content
   h2 환영합니다. 메인홈페이지입니다
-  each potato in videos
-    +video(potato)
+  each video in videos
+    +video(video)
   else
     p 비디오가 없습니다
