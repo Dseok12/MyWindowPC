@@ -35,10 +35,14 @@ export const watch = (req, res) => {
   return res.render("watch", {pageTitle: `Watch ${video.title}`, video});
 }
 
-export const edit = (req, res) => {
+export const getEdit = (req, res) => {
   const { id }= req.params; // id 값을 가져오기 위해서는 req.params로 id값을 가져와야한다.
   const video = videos[ id - 1 ];
   return res.render("edit", {pageTitle: `Edit ${video.title}`, video});
+}
+
+export const postEdit = (req, res) => {
+
 }
 
 export const search = (req, res) => {

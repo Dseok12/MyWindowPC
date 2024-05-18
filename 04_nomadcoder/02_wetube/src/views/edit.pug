@@ -1,4 +1,7 @@
 extends base.pug
 
 block content
-  h1 Edit #{video.title}
+  h4 비디오 제목 바꾸기
+    form(method="POST")
+      input(name="title" placeholder="제목 수정" value=video.title, required)
+      input(value="Save", type="submit")
