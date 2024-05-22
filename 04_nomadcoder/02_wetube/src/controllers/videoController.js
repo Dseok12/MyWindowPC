@@ -48,13 +48,14 @@ export const postEdit = (req, res) => {
   return res.redirect(`/videos/${id}`)
 }
 
-export const search = (req, res) => {
-  res.send("search User")
-}
+export const getUpload = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload Video" });
+};
 
-export const upload = (req, res) => {
-  res.send("upload User")
-}
+export const postUpload = (req, res) => {
+  // here we will add a video to the videos array.
+  return res.redirect("/");
+};
 
 export const deleteVideo = (req, res) => {
   return res.send("deleteVideo User")
