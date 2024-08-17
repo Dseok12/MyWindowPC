@@ -2,14 +2,20 @@
   "name": "20240730",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "dev": "nodemon --exec babel-node ./src/server.js"
   },
   "keywords": [],
   "author": "test",
   "license": "MIC",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.3",
+    "nodemon": "^3.1.4"
   }
 }
