@@ -1,20 +1,19 @@
 import express from "express";
+import morgan from "morgan";
 
 const PORT = 4000;
 
 const app = express();
+const logger = morgan("dev")
 
-const gossipMiddleware = (req, res, next) => {
-  console.log("여기는 미들웨어");
-  next();
-}
 
 const handleHome = (req, res) => {
   console.log("여기는 홈");
   return res.end();
 }
 
-app.get("/", gossipMiddleware, handleHome)
+app.use(logger)
+app.get("/", handleHome);
 
 const handleListening = () => {
   console.log(`http://localhost:${PORT}`);
