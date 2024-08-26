@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 // 간단한 회원가입 폼
 /**
@@ -18,7 +18,12 @@ const Register = () => {
     bio : "",
   });
 
+  // const countRef = useRef(0);
+  const inputRef = useRef();
+
   const onChangeInfo = (e) => {
+    // countRef.current++;
+    // console.log(countRef.current);
     console.log(e.target.name, e.target.value)
     setInput({
       ...input,
@@ -26,10 +31,19 @@ const Register = () => {
     })
   }
 
+  const onSubmit = () => {
+    if(input.name === ""){
+      // 이름을 입력하는 DOM 요소 포커스
+      // console.log(inputRef.current)
+      inputRef.current.focus();
+    }
+  }
+
   return (
     <div>
       <div>
         <input
+          ref={inputRef}
           name="name"
           value={input.name}
           onChange={onChangeInfo}
@@ -64,6 +78,7 @@ const Register = () => {
           type="text"
         />
       </div>
+      <button onClick={onSubmit}>제출</button>
     </div>
   )
 }
