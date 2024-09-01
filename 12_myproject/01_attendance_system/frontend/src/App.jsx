@@ -1,24 +1,30 @@
 import './css/base/App.css';
 import './css/base/reset.css';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from './components/Header.jsx';
+import Body from './components/Body.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
 
   const [message, setMessage] = useState('');
 
+  const fetchAPI = async () => {
+    const response = await axios.get('http://localhost:5000/api');
+    console.log(response.data.message)
+  }
+
   useEffect(() => {
-    // Node.js 서버로부터 메시지 가져오기
-    fetch('http://localhost:5000/')
-      .then(response => response.json())
-      .then(data => setMessage(data.message))
-      .catch(error => console.error('Error fetching data:', error));
+    fetchAPI();
   }, []);
 
   return (
     <div className='AppWrap'>
       <div className='AppInner'>
         <Header />
+        <Body />
+        <Footer/>
       </div>
     </div>
   )
