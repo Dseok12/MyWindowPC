@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header.jsx';
 import Editor from './components/Editor.jsx';
 import List from './components/List.jsx';
+import Exam from './components/Exam.jsx';
 import { useState, useRef } from 'react';
 
 const mockData = [
@@ -56,13 +57,14 @@ function App() {
 
   return (
     <div className='App'>
-      <Header />
+      <Exam />
+      {/* <Header />
       <Editor onCreate={onCreate} />
       <List
         todos={todos}
         onUpdate={onUpdate}
         onDelete={onDelete}
-      />
+      /> */}
     </div>
   );
 };
