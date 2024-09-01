@@ -1,42 +1,28 @@
 import express from "express";
 import morgan from "morgan";
+import globalRouter from "./routers/globalRouter.js";
+import videoRouter from "./routers/videoRouter.js";
+import userRouter from "./routers/userRouter.js";
 
-const PORT = 4000;
-
+const PORT = 4400;
 const app = express();
-const logger = morgan("dev")
-app.use(logger)
+const logger = morgan("dev");
 
-const globalRouter = express.Router();
+// 프론트단 확장자 설정
+app.set("view engine", "pug");
 
-const handleHome = (req, res) => {
-  res.send("Home");
-};
+// 프론트단 경로 설정
+app.set("views", process.cwd() + "/src/views");
 
-globalRouter.get("/", handleHome);
-
-const userRouter = express.Router();
-
-const handleEditUser = (req, res) => {
-  res.send("Edit User");
-};
-
-userRouter.get("/edit", handleEditUser);
-
-const videoRouter = express.Router();
-
-const handleWatchVideo = (req, res) => {
-  res.send("Watch Video");
-};
-
-videoRouter.get("/watch", handleWatchVideo);
-
+// 미들웨어 관리 (라우터)
+app.use(logger);
 app.use("/", globalRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
 
-const handleListening = () => {
-  console.log(`http://localhost:${PORT}`);
-}
 
-app.listen(PORT, handleListening)
+const handleListening = () =>{
+  console.log(`✅ Server listenting on port http://localhost:${PORT} 🚀🚀🚀`);
+};
+
+app.listen(PORT, handleListening);
