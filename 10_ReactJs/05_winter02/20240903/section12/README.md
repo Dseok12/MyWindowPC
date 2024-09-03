@@ -1,4 +1,4 @@
-# React-Router-dom 학습
+# React-Router-dom 학습(ver.6.*에서만)
 
 1. npm i react-router-dom 실행.
 2. main.jsx에 import { BrowserRouter } from 'react-router-dom';을 실행.
