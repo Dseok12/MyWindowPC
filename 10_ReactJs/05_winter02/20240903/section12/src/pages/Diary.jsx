@@ -1,8 +1,15 @@
-import React from 'react';
+import { useParams } from 'react-router-dom'
+import React from 'react'
 
 const Diary = () => {
+
+  const params = useParams()
+  console.log(params)
+
   return (
-    <div>Diary</div>
+    <>
+      <p>{params.id}번째 일기 입니다.</p>
+    </>
   )
 }
 
